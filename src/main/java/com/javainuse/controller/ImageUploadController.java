@@ -1,7 +1,6 @@
 package com.javainuse.controller;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +15,6 @@ import java.util.zip.Inflater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,7 +82,6 @@ public class ImageUploadController {
 			//cre.add(e.getElementsByTagName("Access-key-to").item(0).getTextContent());
 			//cre.add(e.getElementsByTagName("Label").item(0).getTextContent());
 			cre.add(n.getNodeName() + ":" + n.getTextContent().replaceAll("\n  "," "));
-
 			Files.delete(path);
 			return new ResponseEntity<List<String>>(cre, HttpStatus.OK);
 			//return Response.status(Response.Status.OK).type(MediaType.APPLICATION_XML).entity(cre).build();
